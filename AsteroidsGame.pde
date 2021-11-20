@@ -12,11 +12,15 @@ public void setup(){
 }
 
 public void draw(){
+  
   background(0);
   
+  // STARS CODE
   for(int i = 0; i<bob.length; i++){
     bob[i].show();
   }
+  
+  // SHIP CODE
   
   ship.move();
   ship.show();
@@ -25,19 +29,22 @@ public void draw(){
     if(key == 'a' || key == 'A'){ //turn counterclockwise
        ship.turn(-10);
     }
-    if(key == 'w' || key == 'W'){ // accelerate
-       ship.accelerate(0.6);
+    if(key == 'd' || key == 'D'){ //turn counterclockwise
+       ship.turn(10);
     }
-    if(key == 't'){
-       ship.accelerate(0.6);
+    if(key == 'w' || key == 'W'){ // accelerate forward
+       ship.accelerate(0.1);
+    }
+    if(key == 's' || key == 'S'){ // accelerate backward
+       ship.accelerate(-0.1);
+    }
+    if(key == ' '){
+      ship.setXspeed(0);
+       ship.setYspeed(0);
+       background(0);
+       ship.hyperspace();
+       
     }
   }
   
 }
-
-/*
-public void keyPressed(){
-  if(key == 'a' || key == 'A'){
-     ship.turn(-10);
-  }
-}*/
