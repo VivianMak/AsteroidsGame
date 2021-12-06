@@ -1,5 +1,7 @@
 Star [] bob;
 Spaceship ship;
+ArrayList <Asteroid> mot = new ArrayList <Asteroid>();
+Asteroid q;
 
 public void setup(){
   size(400,400);
@@ -9,6 +11,14 @@ public void setup(){
     bob[i] = new Star();
   }
   ship = new Spaceship();
+  
+  q = new Asteroid();
+  //mot = new ArrayList <Asteroid>();
+  for(int nI = 0; nI < 10; nI++){
+    //Asteroid nI = new Asteroid();
+    mot.add(Asteroid nI = new Asteroid());
+  }
+  System.out.print(mot.size());
 }
 
 public void draw(){
@@ -25,6 +35,17 @@ public void draw(){
   ship.move();
   ship.show();
   
+  q.move();
+  q.show();
+  
+  /*
+  for(int nI = 0; nI < mot.size(); nI++){
+    mot[nI].move();
+    mot[nI].show();
+  }*/
+  
+  
+  // moving spaceship
   if(keyPressed){
     if(key == 'a' || key == 'A'){ //turn counterclockwise
        ship.turn(-10);
@@ -45,6 +66,6 @@ public void draw(){
        ship.hyperspace();
        
     }
-  }
+  } // end
   
 }
