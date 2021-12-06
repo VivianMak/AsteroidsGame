@@ -1,7 +1,7 @@
 Star [] bob;
 Spaceship ship;
-ArrayList <Asteroid> mot = new ArrayList <Asteroid>();
-Asteroid q;
+ArrayList <Asteroid> rock = new ArrayList <Asteroid>();
+//Asteroid q;
 
 public void setup(){
   size(400,400);
@@ -12,13 +12,14 @@ public void setup(){
   }
   ship = new Spaceship();
   
-  q = new Asteroid();
-  //mot = new ArrayList <Asteroid>();
+  //q = new Asteroid();
+  
+  // Asteroid ArrayList
   for(int nI = 0; nI < 10; nI++){
-    //Asteroid nI = new Asteroid();
-    mot.add(Asteroid nI = new Asteroid());
+    rock.add(new Asteroid());
   }
-  System.out.print(mot.size());
+  //System.out.print(rock.size());
+  
 }
 
 public void draw(){
@@ -35,14 +36,15 @@ public void draw(){
   ship.move();
   ship.show();
   
-  q.move();
-  q.show();
-  
-  /*
-  for(int nI = 0; nI < mot.size(); nI++){
-    mot[nI].move();
-    mot[nI].show();
-  }*/
+  //q.move();
+  //q.show();
+  for(int nI = 0; nI < rock.size(); nI++){
+    rock.get(nI).move();
+    rock.get(nI).show();
+    float d  = dist(bob.getX(), bob.getY(), rock.get(nI).getX(), rock.get(nI).getY());
+    if(d < 10)
+      rock.remove(nI);
+  }
   
   
   // moving spaceship
