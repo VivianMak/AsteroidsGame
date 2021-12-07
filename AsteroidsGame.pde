@@ -41,7 +41,7 @@ public void draw(){
   for(int nI = 0; nI < rock.size(); nI++){
     rock.get(nI).move();
     rock.get(nI).show();
-    float d  = dist(bob.getX(), bob.getY(), rock.get(nI).getX(), rock.get(nI).getY());
+    float d  = dist((float)ship.getX(), (float)ship.getY(), (float)rock.get(nI).getX(), (float)rock.get(nI).getY());
     if(d < 10)
       rock.remove(nI);
   }
